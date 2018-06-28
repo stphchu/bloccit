@@ -9,6 +9,7 @@ require 'random_data'
      body:   RandomData.random_paragraph
    )
  end
+
  posts = Post.all
  
  # Create Comments
@@ -26,9 +27,9 @@ Post.find_or_create_by!(
    body: "This is the body of some post"
 )
 
-Post.find_or_create_by!(
-   title: "Another Post",
-   body: "This is the body of another post"
+Comment.find_or_create_by!(
+   post: Post.find(51),
+   body: "This is the body of some comment"
 )
 
  puts "Seed finished"
