@@ -22,13 +22,13 @@ require 'random_data'
    )
  end
  
-Post.find_or_create_by!(
+uniqPost = Post.find_or_create_by!(
    title: "Some Post",
    body: "This is the body of some post"
 )
 
 Comment.find_or_create_by!(
-   post: Post.find(51),
+   post: Post.find(uniqPost.id),
    body: "This is the body of some comment"
 )
 
