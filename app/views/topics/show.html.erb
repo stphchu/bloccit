@@ -19,9 +19,29 @@
          </div>
        </div>
      <% end %>
+
+
+<% @topic.sponsored_posts.each do |spons_post| %>
+       <div class="media">
+         <div class="media-body">
+	   <small>
+	      <b>Sponsored</b>
+	   </small>
+           <h4 class="media-heading">
+	     <%= link_to spons_post.title, topic_sponsored_post_path(@topic, spons_post) %>
+           </h4>
+           <small>
+             submitted <%= time_ago_in_words(spons_post.created_at) %> ago <br>
+           </small>
+         </div>
+       </div>
+     <% end %>
+
+
    </div>
    <div class="col-md-4">
      <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
+     <%= link_to "New Sponsored Post", new_topic_sponsored_post_path(@topic), class: 'btn btn-info' %>
      <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
    </div>
 </div>
