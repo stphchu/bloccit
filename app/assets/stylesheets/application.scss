@@ -16,4 +16,12 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
-@import 'sessions.scss';
+
+
+#user-sign-out {
+  padding-right: 60px;
+}
+
+#user-name {
+  font-weight: bold;
+}
