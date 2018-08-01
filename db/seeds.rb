@@ -38,13 +38,22 @@ require 'random_data'
    )
  end
 
-#Test User
- user = User.first
- user.update_attributes!(
-   email: 'schu@mail.ccsf.edu', # replace this with your personal email
+#Test Users
+
+ # Create an admin user
+ admin = User.create!(
+   name:     'Admin User',
+   email:    'admin@example.com',
+   password: 'helloworld',
+   role:     'admin'
+ )
+ 
+ # Create a member
+ member = User.create!(
+   name:     'Member User',
+   email:    'member@example.com',
    password: 'helloworld'
  )
-
  
  puts "Seed finished"
  puts "#{User.count} users created"
