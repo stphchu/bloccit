@@ -54,6 +54,14 @@ require 'random_data'
    email:    'member@example.com',
    password: 'helloworld'
  )
+
+#Create a moderator
+ moderator = User.create!(
+   name:     'Mod User',
+   email:    'mod@example.com',
+   password: 'helloworld',
+   role:     'moderator'
+ )
  
  puts "Seed finished"
  puts "#{User.count} users created"
