@@ -19,15 +19,15 @@
       <li><%= link_to "About", about_path %></li>
      
       <% if current_user %>
-	 <li class="pull-right"><%= image_tag "#{avatar_url(current_user)}" %></li>
-	 <div id="user-sign-out">
-         <li class="pull-right" id="user-name"><%= "#{current_user.name}" %></li>
+          <li class="pull-right gravatar"><%= image_tag current_user.avatar_url(48) %></li>
+        <div id="user-sign-out">
+          <li class="pull-right"><%= link_to current_user.name, user_path(current_user) %></li>
 	 <br> 
-	 <li class="pull-right"><%= link_to "Sign Out", session_path(current_user), method: :delete %></li>
-	 </div>
+	  <li class="pull-right"><%= link_to "Sign Out", session_path(current_user), method: :delete %></li>
+        </div>
       <% else %>
-         <li class="pull-right"><%= link_to "Sign In", new_session_path %></li>
-         <li class="pull-right"><%= link_to "Sign Up", new_user_path %></li>
+          <li class="pull-right"><%= link_to "Sign In", new_session_path %></li>
+          <li class="pull-right"><%= link_to "Sign Up", new_user_path %></li>
       <% end %>      
     </ul>
 
